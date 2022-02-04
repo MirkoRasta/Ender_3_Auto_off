@@ -32,7 +32,7 @@ A questo punto "basta" fare un cavetto con il connettore HX2.54 con due fili (pi
 _ _ _ _
 Per la parte software invece basta fare un paio di modifiche al firmware, allego anche gli screen:
 1) Verso la riga 330 del file "Configuration.h" bisogna decommentare il #define PSU_CONTROL e lasciare il resto com'è.
-2) Verso la riga 28 del file "pins_BTT_SKR_MINI_E3_V1.2.h" che si trova nella cartella "stm32f1" all'interno della cartella "pins" (ricapitolando: Marlin\src\pins\stm32f1\pins_BTT_SKR_MINI_E3_V1.2.h) bisogna commentare la riga #define NEOPIXEL_PIN PC7, al fine di liberare il pin PC7 del processore e utilizzarlo per i nostri scopi.
-3) in "pins_BTT_SKR_MINI_E3_common.h" (Marlin\src\pins\stm32f1\pins_BTT_SKR_MINI_E3_common.h) basta aggiungere (più o meno ovunque, io l'ho messo alla riga 44, prima di #define SERVO0_PIN) la riga "#define PS_ON_PIN PC7 
+2) Verso la riga 28 del file "pins_BTT_SKR_MINI_E3_V1.2.h" che si trova nella cartella "stm32f1" all'interno della cartella "pins" (ricapitolando: Marlin\src\pins\stm32f1\pins_BTT_SKR_MINI_E3_V1.2.h) bisogna commentare la riga " #define NEOPIXEL_PIN PC7 ", al fine di liberare il pin PC7 del processore e utilizzarlo per i nostri scopi.
+3) in "pins_BTT_SKR_MINI_E3_common.h" (Marlin\src\pins\stm32f1\pins_BTT_SKR_MINI_E3_common.h) basta aggiungere (più o meno ovunque, io l'ho messo alla riga 44, prima di #define SERVO0_PIN) la riga " #define PS_ON_PIN PC7 "
 
 Fatto, a questo punto basta flashare il nuovo firmware e inserire alla fine di ogni G-Code l'istruzione M80, chiaramente dopo aver aspettato che la temperatura sia scesa sotto la soglia che volete voi con le apposite istruzioni.
